@@ -1,115 +1,153 @@
 #include <iostream>
+#include <string>
 #include <vector>
+#include <iomanip>
 
-using std::cout;
-using std::endl;
-using std::string;
-using std::vector;
+using namespace std;
 
-// ---------------------------------------------------------
-// Clase Producto
-// ---------------------------------------------------------
+// =============================
+//         CLASE PRODUCTO
+// =============================
 class Producto {
 private:
     string nombre;
     double precio;
-    double peso;
+    int cantidad;
 
 public:
-    // Constructor por defecto
-    Producto() : nombre(""), precio(0.0), peso(0.0) {}
-
-    // Constructor con parámetros
-    Producto(const string& nombre, double precio, double peso)
-        : nombre(nombre), precio(precio), peso(peso) {}
+    // Constructor
+    Producto(string n, double p, int c) {
+        nombre = n;
+        precio = p;
+        cantidad = c;
+    }
 
     // Getters
     string getNombre() const { return nombre; }
     double getPrecio() const { return precio; }
-    double getPeso() const { return peso; }
+    int getCantidad() const { return cantidad; }
 
     // Setters
-    void setNombre(const string& nombre) { this->nombre = nombre; }
-    void setPrecio(double precio) { this->precio = precio; }
-    void setPeso(double peso) { this->peso = peso; }
+    void setNombre(string n) { nombre = n; }
+    void setPrecio(double p) { precio = p; }
+    void setCantidad(int c) { cantidad = c; }
 
-    // Método extra
-    void mostrarInfo() const {
-        cout << "Producto: " << nombre 
-             << " | Precio: $" << precio
-             << " | Peso: " << peso << " kg" << endl;
+    // Método para reducir inventario
+    void vender() {
+        if (cantidad > 0)
+            cantidad--;
     }
 };
 
-// ---------------------------------------------------------
-// Clase CarritoAutocobro
-// ---------------------------------------------------------
-class CarritoAutocobro {
+// =============================
+//        CLASE SUPERMERCADO
+// =============================
+class Supermercado {
 private:
-    vector<Producto> productos;
+    vector<Producto> inventario;
+    vector<Producto> carrito;
     double total;
 
 public:
-    // Constructor
-    CarritoAutocobro() : total(0.0) {}
 
-    // Método para agregar productos
-    void agregarProducto(const Producto& producto) {
-        productos.push_back(producto);
-        total += producto.getPrecio();
-        cout << "Agregado al carrito: " << producto.getNombre() << endl;
+    // Constructor
+    Supermercado() {
+        total = 0;
+
+        // Crear inventario inicial
+        inventario.push_back(Producto("pan", 1.00, 20));
+        inventario.push_back(Producto("leche", 1.50, 15));
+        inventario.push_back(Producto("arroz", 2.00, 10));
+        inventario.push_back(Producto("huevos", 2.50, 30));
+        inventario.push_back(Producto("manzana", 0.75, 25));
     }
 
-    // Mostrar lista de productos
-    void mostrarCarrito() const {
-        cout << "\n--- Carrito Actual ---\n";
-        for (const auto& p : productos) {
-            p.mostrarInfo();
+    // Buscar producto
+    Producto* buscarProducto(string nombre) {
+        for (auto &p : inventario)
+            if (p.getNombre() == nombre)
+                return &p;
+        return nullptr;
+    }
+
+    // Agregar al carrito
+    void agregarProducto(string nombre) {
+        Producto* p = buscarProducto(nombre);
+        if (p != nullptr && p->getCantidad() > 0) {
+            carrito.push_back(*p);
+            total += p->getPrecio();
+            p->vender();
+            cout << nombre << " agregado. Precio: $" << fixed << setprecision(2) 
+                 << p->getPrecio() << endl;
+        } else {
+            cout << "Producto no disponible o sin existencias." << endl;
         }
     }
 
-    // Obtener total
-    double getTotal() const { return total; }
+    // Aplicar descuento
+    void aplicarDescuentoTerceraEdad() {
+        double descuento = total * 0.10;
+        total -= descuento;
+        cout << "Se aplicó un descuento de $" << fixed << setprecision(2) 
+             << descuento << endl;
+    }
 
-    // Método de pago
-    void pagar() {
-        cout << "\nTotal a pagar: $" << total << endl;
-        cout << "Pago exitoso. Gracias por su compra.\n";
+    // Mostrar ticket
+    void mostrarTicket() {
+        cout << "\n--- Ticket de compra ---\n";
+        for (auto &p : carrito) {
+            cout << p.getNombre() << " - $" 
+                 << fixed << setprecision(2) << p.getPrecio() << endl;
+        }
+        cout << "Total a pagar: $" << fixed << setprecision(2) << total << endl;
+        cout << "------------------------\n";
+    }
+
+    // Mostrar inventario
+    void mostrarInventario() {
+        cout << "\nInventario actual:\n";
+        for (auto &p : inventario) {
+            cout << p.getNombre()
+                 << " - Precio: $" << fixed << setprecision(2) << p.getPrecio()
+                 << " - Cantidad: " << p.getCantidad() << endl;
+        }
     }
 };
 
-// ---------------------------------------------------------
-// Función principal
-// ---------------------------------------------------------
+// =============================
+//           MAIN
+// =============================
 int main() {
-    // Crear objetos de cada clase
-    Producto producto1("Manzana", 5.0, 0.2);
-    Producto producto2("Leche", 22.5, 1.0);
-    Producto producto3;
+    Supermercado store;
 
-    // Probar setters en producto3
-    producto3.setNombre("Pasta");
-    producto3.setPrecio(14.0);
-    producto3.setPeso(0.5);
+    cout << "Bienvenido al autocobro del supermercado.\n";
+    cout << "Escribe los productos uno por uno.\nEscribe 'fin' para terminar.\n\n";
 
-    // Mostrar información para demostrar getters y método extra
-    producto1.mostrarInfo();
-    producto2.mostrarInfo();
-    producto3.mostrarInfo();
+    store.mostrarInventario();
 
-    // Crear objeto de autocobro
-    CarritoAutocobro caja;
+    string producto;
 
-    // Llamar métodos para demostrar su funcionamiento
-    caja.agregarProducto(producto1);
-    caja.agregarProducto(producto2);
-    caja.agregarProducto(producto3);
+    while (true) {
+        cout << "Producto: ";
+        cin >> producto;
 
-    caja.mostrarCarrito();
-    cout << "\nTotal actual: $" << caja.getTotal() << endl;
+        if (producto == "fin")
+            break;
 
-    // Procesar pago
-    caja.pagar();
+        store.agregarProducto(producto);
+    }
+
+    string respuesta;
+    cout << "¿Es usted de la tercera edad? (si/no): ";
+    cin >> respuesta;
+
+    if (respuesta == "si") {
+        store.aplicarDescuentoTerceraEdad();
+    }
+
+    store.mostrarTicket();
+    store.mostrarInventario();
 
     return 0;
 }
+
