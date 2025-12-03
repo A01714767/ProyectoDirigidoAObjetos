@@ -50,9 +50,6 @@ Cumplo estándares en todo mi código fuente. Avance 3.
 10. Organización y control de versiones
 El repositorio fue organizado y limpiado, con commits descriptivos y consistentes para cada avance.
 Se retiraron versiones antiguas y archivos innecesarios.
-
 Sub-competencias:
-
 Uso correcto de GitHub. Avance 1
-
 Uso de commits y gestión continua. Avance 3
