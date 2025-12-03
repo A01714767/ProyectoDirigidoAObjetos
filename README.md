@@ -1,123 +1,58 @@
 # ProyectoDirigidoAObjetos
 "El supermercado llamado la chamba quiere actualizarse y busca un sistema de autocobro y me lo encargaron a mi un estudiante del tec"
-Este documento describe las correcciones realizadas en el proyecto del sistema de supermercado, así como la relación de cada ajuste con los indicadores y sub-competencias solicitados en los avances 1, 2 y 3.
-El propósito es demostrar la mejora progresiva del diseño, la implementación orientada a objetos y la calidad del código.
+Corrección de la documentación del proyecto
+El README fue corregido para incluir: descripción clara del proyecto, qué hace y qué no hace, instrucciones de compilación y ejecución, forma de uso.
+Antes, el documento no era claro y no incluía indicaciones técnicas.
+Sub-competencia:
+Cumplo con estándares en el repositorio; README claro y funcional. Avance 1.
+2. Inclusión de instrucciones de compilación y ejecución
+Ahora el proyecto puede ser compilado correctamente desde cualquier entorno compatible. Se agregaron pasos explícitos de ejecución.
+Esto responde a la retroalimentación de que el repositorio no tenía instrucciones técnicas.
+Sub-competencia:
+Implemento clases y proyecto siguiendo estándares en el repositorio. Avance 3.
+3. Clarificación del alcance del proyecto
+Se definieron claramente las funciones implementadas y las que no se incluyen en esta versión.
+Este cambio evita confusiones y documenta el alcance del sistema.
+Sub-competencia:
+Implemento clases según requerimientos del modelo. Avance 3.
+4. Creación del archivo de revisiones
+Se agregó el archivo destinado a solicitar la re-evaluación de cada entrega, como se pedía.
+El repositorio ahora cumple con este requerimiento específico.
+Sub-competencia:
+Estándares del repositorio y proceso de trabajo. Avance 1.
+5. Corrección del diagrama UML
+Se corigió el diagrama UML para cumplir con las normas de modelado:
+flechas correctas para herencia, composición y agregación, relaciones bien definidas, herencia presente y correctamente representada, composición representada de manera adecuada, agregación implementada correctamente.
+El UML previo tenía errores en símbolos y no incluía herencia.
+Sub-competencias:
+Modelo un diagrama UML útil. Avance 2
+Uso de herencia en UML. Avance 2
+Uso de agregación y composición. Avance 3
+6. Implementación de herencia en el código
+Se ajustó el modelo para que existiera herencia real dentro del sistema, acorde con el UML corregido.
+Sub-competencia:
+Impemento herencia de manera correcta y útil. Avance 3.
+7. Mejora del encapsulamiento
+Se revisaron todas las clases para que los atributos estén protegidos y el acceso se realice solamente mediante métodos.
+Se corrigieron errores previos donde constructores no coincidían con los valores pasados desde el main.
+Sub-competencia:
+Acceso correct a atibutos y métodos; encapsulamiento adecuado. Avance 1.
+8. Corrección de constructores y métodos
+Se revisaron definiciones e implementaciones para evitar errores de compilación y referencias indefinidas.
+Esto asegura coherencia entre declaración y definición.
+Sub-competencia:
+Codificación correcta de métodos y atributos. Avance 1.
+9. Mejora del estlo del código
+Todos los archivos fueron estandarizados en indentación, comentarios, nombres de variables y organización general.
+Se eliminaron líneas duplicadas o desordenadas.
+Sub-competencia:
+Cumplo estándares en todo mi código fuente. Avance 3.
+10. Organización y control de versiones
+El repositorio fue organizado y limpiado, con commits descriptivos y consistentes para cada avance.
+Se retiraron versiones antiguas y archivos innecesarios.
 
-1. Corrección y estandarización de constructores y métodos
+Sub-competencias:
 
-Se revisaron y corrigieron los constructores de varias clases para asegurar que coincidieran con la forma en que se instancian los objetos dentro del programa.
-También se verificó que todos los métodos esenciales estuvieran implementados correctamente (getters, setters, y comportamiento básico).
+Uso correcto de GitHub. Avance 1
 
-Sub-competencia relacionada:
-Codifico métodos y atributos de clase correctamente (constructores, getters, setters). — Avance 1
-
-Dónde impacta:
-En todas las clases que requieren inicialización de datos.
-
-2. Encapsulamiento adecuado y acceso seguro a atributos
-
-Se corrigió el acceso directo a atributos para garantizar el uso de métodos públicos como getters y setters.
-Este ajuste asegura el uso correcto del encapsulamiento y evita malas prácticas de manipulación directa de datos internos.
-
-Sub-competencia relacionada:
-Compruebo el acceso a los atributos y métodos de la clase (encapsulamiento correcto). — Avance 1
-
-Dónde impacta:
-En las clases principales del sistema.
-
-3. Implementación correcta de composición
-
-Se reforzó el modelo de composición en el cual un objeto forma parte integral de otro y no puede existir de manera independiente.
-Ejemplo de ello es la relación entre un cliente y su carrito, y la relación entre un carrito y la lista de productos que contiene.
-
-Sub-competencia relacionada:
-Implemento composición siguiendo mi diagrama de clases. — Avance 3
-
-Dónde impacta:
-En la estructura interna de las clases que contienen a otras como parte de su funcionamiento esencial.
-
-4. Implementación de agregación
-
-Se corrigió el uso del concepto de agregación, que se da cuando una clase utiliza objetos externos sin tener propiedad total sobre ellos.
-Este concepto se aplicó para representar elementos que son gestionados pero no “poseídos” por completo.
-
-Sub-competencia relacionada:
-Utilizo el concepto de composición (o agregación) en el diagrama de clases. — Avance 3
-
-Dónde impacta:
-En las relaciones entre clases que administran colecciones externas.
-
-5. Integración adecuada del concepto de herencia
-
-Se añadió herencia útil para extender funcionalidades del sistema sin duplicar código.
-Esto permitió modelar tipos específicos de productos que comparten comportamiento común pero tienen características particulares.
-
-Sub-competencia relacionada:
-Utilizo el concepto de herencia en el diagrama de clases de manera adecuada. — Avance 2 y 3
-
-Dónde impacta:
-En la jerarquía de clases derivadas a partir de una clase base.
-
-6. Mejoras en el diagrama UML
-
-Se rediseñó el diagrama UML para que representara de manera clara y profesional:
-
-Herencia
-
-Composición
-
-Agregación
-
-Métodos y atributos de cada clase
-
-El diagrama actualizado refleja con precisión la estructura real del proyecto.
-
-Sub-competencia relacionada:
-Modelo un diagrama de clases útil para solucionar un problema utilizando UML. — Avance 2
-
-Dónde impacta:
-En la documentación visual del sistema.
-
-7. Correcciones en el uso de objetos dentro del programa
-
-Se verificó que la creación y el uso de objetos coincidiera con los constructores y la estructura interna del proyecto.
-Además, se añadieron pruebas y llamadas directas a métodos para comprobar el funcionamiento del diseño implementado.
-
-Sub-competencia relacionada:
-Compruebo el acceso a los atributos y métodos de la clase mandando a llamar los objetos de forma útil. — Avance 1
-
-Dónde impacta:
-En la lógica que utiliza las clases.
-
-8. Limpieza y estandarización del código
-
-Se revisaron nombres, indentaciones, estilo, convenciones y comentarios.
-Se eliminó redundancia, se mejoró la claridad y se aplicó un estilo uniforme.
-
-Sub-competencia relacionada:
-Sigo estándares en todo mi código fuente. — Avance 3
-
-Dónde impacta:
-En toda la base de código del proyecto.
-
-9. Organización y estándares del repositorio
-
-Se organizaron los recursos del proyecto, se limpiaron elementos innecesarios, y se dejó únicamente lo esencial para su ejecución y lectura.
-Se añadió documentación sobre propósito, uso y alcance del proyecto.
-
-Sub-competencia relacionada:
-Cumplo con estándares en mi repositorio: README claro, sin archivos basura, explicación correcta. — Avance 1
-
-Dónde impacta:
-En la estructura general del repositorio.
-
-10. Control de versiones y commits significativos
-
-Se registraron los cambios principales del desarrollo utilizando una herramienta de control de versiones.
-Cada corrección mayor quedó asociada a un commit representativo para demostrar el progreso.
-
-Sub-competencia relacionada:
-Uso una herramienta para control de versiones y guardo avances en commits. — Avances 1 y 3
-
-Dónde impacta:
-En el historial del repositorio.
+Uso de commits y gestión continua. Avance 3
