@@ -1,2 +1,45 @@
-Favor de revisar el avance 2 entero y esta seccion del avance 1 "Cumplo con estándares en mi repositorio: tiene un readme claro que explica el proyecto  (para que sirve,  para que no sirve y como se usa), no tiene archivos basura o versiones pasadas.
-Avance 1"
+Correcciones solicitadas para re-evaluación:
+
+1. Se corrigió el README para que incluya:
+   - descripción clara del proyecto,
+   - funciones que sí hace y que no hace,
+   - instrucciones de compilación y ejecución,
+   - estructura más profesional.
+   Indicador relacionado: Estándares del repositorio (Avance 1).
+
+2. Se incorporó un archivo de revisiones, como se solicitó en retroalimentaciones previas.
+   Indicador relacionado: Estándares del repositorio (Avance 1).
+
+3. Se rehizo el diagrama UML porque el anterior tenía errores:
+   - las flechas no seguían el estándar UML,
+   - no incluía herencia,
+   - no diferenciaba composición y agregación.
+   Indicadores relacionados: Diagramas UML, herencia y composición (Avance 2 y Avance 3).
+
+4. Se actualizó el código para corresponder correctamente con el UML corregido:
+   - se implementó herencia real,
+   - se aplicó composición entre cliente y carrito,
+   - se aplicó agregación entre supermercado y productos.
+   Indicadores relacionados: Implementación del modelo en C++, herencia, composición (Avance 3).
+
+5. Se revisó todo el código para asegurar encapsulamiento total:
+   - se eliminaron accesos directos a atributos,
+   - se verificó correcto uso de getters/setters.
+   Indicadores relacionados: Encapsulamiento y diseño de clases (Avance 1).
+
+6. Se corrigieron los constructores y las declaraciones de métodos que generaban errores de compilación.
+   Indicador relacionado: Codificación de clases (Avance 1).
+
+7. Se estandarizó todo el estilo del código:
+   - indentación coherente,
+   - nombres consistentes,
+   - comentarios funcionales.
+   Indicador relacionado: Estilo y estándares (Avance 3).
+
+8. Se mejoró la gestión del repositorio:
+   - commits significativos,
+   - limpieza de archivos innecesarios,
+   - organización clara.
+   Indicadores relacionados: Uso de GitHub y commits (Avance 1 y Avance 3).
+
+Solicito re-evaluación de estos puntos para la siguiente entrega.
