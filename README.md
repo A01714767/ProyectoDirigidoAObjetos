@@ -1,4 +1,4 @@
-# Supermercado - Proyecto de ejemplo
+# Supermercado 
 
 Pequeña aplicación en C++ que simula un punto de autocobro en un supermercado.
 
@@ -50,3 +50,4 @@ Siguientes pasos sugeridos
 - Añadir documentación detallada (Doxygen) si quieres generar documentación HTML.
 - Añadir un `Makefile` o `CMakeLists.txt` para facilitar compilación multiplataforma.
 - Añadir pruebas unitarias pequeñas para validar comportamiento del carrito e inventario.
+
