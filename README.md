@@ -1,108 +1,52 @@
-# ProyectoDirigidoAObjetos
-"El supermercado llamado la chamba quiere actualizarse y busca un sistema de autocobro y me lo encargaron a mi un estudiante del tec"
-. Corrección de la documentación del proyecto
+# Supermercado - Proyecto de ejemplo
 
-El README fue corregido para incluir:
+Pequeña aplicación en C++ que simula un punto de autocobro en un supermercado.
 
-descripción clara del proyecto,
+Estructura de archivos
 
-qué hace y qué no hace,
+- `main.cpp`         : Programa principal y menú de interacción.
+- `producto.h`       : Clase `Producto` (id, nombre, precio, stock).
+- `persona.h`        : Clase base `Persona` (id, nombre).
+- `cliente.h`        : Clase `Cliente` que hereda de `Persona` y maneja puntos.
+- `carrito.h`        : `Carrito` y `ItemCarrito` para gestionar artículos en compra.
+- `inventario.h`     : `Inventario` con búsqueda y listado de productos.
 
-instrucciones de compilación y ejecución,
+Compilar y ejecutar (Windows)
 
-forma de uso.
+Opción A — Usando `g++` (MinGW/MSYS2):
 
-Antes, el documento no era claro y no incluía indicaciones técnicas.
+1. Abre `PowerShell` en la carpeta del proyecto (`supermercado_v2`).
+2. Compila con:
 
-Sub-competencia:
-Cumplo con estándares en el repositorio; README claro y funcional. Avance 1.
+```powershell
+g++ -std=c++17 -O2 -Wall -Wextra main.cpp -o supermercado.exe
+```
 
-2. Inclusión de instrucciones de compilación y ejecución
+3. Ejecuta:
 
-Ahora el proyecto puede ser compilado correctamente desde cualquier entorno compatible. Se agregaron pasos explícitos de ejecución.
-Esto responde a la retroalimentación de que el repositorio no tenía instrucciones técnicas.
+```powershell
+./supermercado.exe
+```
 
-Sub-competencia:
-Implemento clases y proyecto siguiendo estándares en el repositorio. Avance 3.
+Opción B — Usando Visual Studio (Developer Command Prompt / cl):
 
-3. Clarificación del alcance del proyecto
+1. Abre "Developer Command Prompt for VS" o ejecuta las herramientas de compilador con las variables de entorno.
+2. Compila:
 
-Se definieron claramente las funciones implementadas y las que no se incluyen en esta versión.
-Este cambio evita confusiones y documenta el alcance del sistema.
+```powershell
+cl /EHsc /std:c++17 main.cpp
+```
 
-Sub-competencia:
-Implemento clases según requerimientos del modelo. Avance 3.
+3. Ejecuta el `.exe` generado.
 
-4. Creación del archivo de revisiones
+Notas
 
-Se agregó el archivo destinado a solicitar la re-evaluación de cada entrega, como se pedía.
-El repositorio ahora cumple con este requerimiento específico.
+- El proyecto es de tipo pequeño y todos los archivos fuente/headers están en la misma carpeta; no hay Makefile por defecto.
+- Si falta `g++`, puedes instalar MinGW-w64 o MSYS2, o usar Visual Studio Community.
+- Si quieres, puedo generar un `Makefile` o un proyecto de Visual Studio (.vcxproj) para facilitar la compilación.
 
-Sub-competencia:
-Estándares del repositorio y proceso de trabajo. Avance 1.
+Siguientes pasos sugeridos
 
-5. Corrección del diagrama UML
-
-Se corrigió el diagrama UML para cumplir con las normas de modelado:
-
-flechas correctas para herencia, composición y agregación,
-
-relaciones bien definidas,
-
-herencia presente y correctamente representada,
-
-composición representada de manera adecuada,
-
-agregación implementada correctamente.
-
-El UML previo tenía errores en símbolos y no incluía herencia.
-
-Sub-competencias:
-
-Modelo un diagrama UML útil. Avance 2
-
-Uso de herencia en UML. Avance 2
-
-Uso de agregación y composición. Avance 3
-
-6. Implementación de herencia en el código
-
-Se ajustó el modelo para que existiera herencia real dentro del sistema, acorde con el UML corregido.
-
-Sub-competencia:
-Implemento herencia de manera correcta y útil. Avance 3.
-
-7. Mejora del encapsulamiento
-
-Se revisaron todas las clases para que los atributos estén protegidos y el acceso se realice solamente mediante métodos.
-Se corrigieron errores previos donde constructores no coincidían con los valores pasados desde el main.
-
-Sub-competencia:
-Acceso correcto a atributos y métodos; encapsulamiento adecuado. Avance 1.
-
-8. Corrección de constructores y métodos
-
-Se revisaron definiciones e implementaciones para evitar errores de compilación y referencias indefinidas.
-Esto asegura coherencia entre declaración y definición.
-
-Sub-competencia:
-Codificación correcta de métodos y atributos. Avance 1.
-
-9. Mejora del estilo del código
-
-Todos los archivos fueron estandarizados en indentación, comentarios, nombres de variables y organización general.
-Se eliminaron líneas duplicadas o desordenadas.
-
-Sub-competencia:
-Cumplo estándares en todo mi código fuente. Avance 3.
-
-10. Organización y control de versiones
-
-El repositorio fue organizado y limpiado, con commits descriptivos y consistentes para cada avance.
-Se retiraron versiones antiguas y archivos innecesarios.
-
-Sub-competencias:
-
-Uso correcto de GitHub. Avance 1
-
-Uso de commits y gestión continua. Avance 3
+- Añadir documentación detallada (Doxygen) si quieres generar documentación HTML.
+- Añadir un `Makefile` o `CMakeLists.txt` para facilitar compilación multiplataforma.
+- Añadir pruebas unitarias pequeñas para validar comportamiento del carrito e inventario.
